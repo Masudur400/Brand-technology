@@ -94,6 +94,7 @@ const Login = () => {
                 <Link to='/' className="p-1 border-2 border-orange-500 rounded-full"><FaXmark className="md:text-3xl text-orange-600 my-0"></FaXmark></Link>
             </div>
             <h3 className="text-lg md:text-3xl font-bold text-center text-orange-600 my-4">Please LogIn</h3>
+            <p>For testing you can use <span className="font-medium">user@gmail.com</span> or <span className="font-medium">admin@gmail.com</span> for login.</p>
             <form onSubmit={handleLogin} className="">
                 <div>
                     <p className="font-semibold mb-2">Email</p>
@@ -102,7 +103,7 @@ const Login = () => {
                 </div>
                 <p className="font-semibold text-sm md:text-base mb-2">Password</p>
                 <div className="relative">
-                    <input className="border-2 border-base-300 bg-base-100 rounded-md w-full text-sm md:text-base px-4  py-1 mb-2" type={showPassword ? "text" : "password"} name="password" placeholder="Password" id="password" required />
+                    <input className="border-2 border-base-300 bg-base-100 rounded-md w-full text-sm md:text-base px-4  py-1 mb-2" type={showPassword ? "text" : "password"} name="password" defaultValue='123456A' placeholder="Password" id="password" required />
                     <span className="absolute md:top-1/4 top-[5px] right-3" onClick={() => setShowPassword(!showPassword)}>
                         {showPassword ? <FaRegEyeSlash></FaRegEyeSlash> : <FaRegEye></FaRegEye>}
                     </span>

@@ -37,7 +37,7 @@ BrandTec showcases IT services, solutions, and company details with a profession
 
 ---
 
-* live link : https://brand-tec.web.app/
+<!-- * live link : https://brand-tec.web.app/ -->
 * client site github : https://github.com/Masudur400/Brand-tec-client
 * server site github : https://github.com/Masudur400/Brand-tec-server
 

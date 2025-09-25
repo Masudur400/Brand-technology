@@ -52,6 +52,11 @@ const NavBar = () => {
         <li onClick={() => window.scrollTo({
             top: 0,
             behavior: "smooth",  
+        })}><NavLink to='/features' onClick={closeMenu} className={({ isActive }) => isActive ? 'text-orange-500 underline' : 'hover:text-red-500'}>Features</NavLink></li>
+
+        <li onClick={() => window.scrollTo({
+            top: 0,
+            behavior: "smooth",  
         })}><NavLink to='/contact' onClick={closeMenu} className={({ isActive }) => isActive ? 'text-orange-500 underline' : 'hover:text-red-500'}>Contact Us</NavLink></li>
          
     </>;

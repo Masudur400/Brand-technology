@@ -45,6 +45,7 @@ import AllOrders from './components/Orders/AllOrders/AllOrders.jsx';
 import CompleteOrders from './components/Orders/CompleteOrders/CompleteOrders.jsx';
 import PrivetRoute from './PrivetRoute/PrivetRoute.jsx';
 import AdminRoute from './PrivetRoute/AdminRoute.jsx';
+import Features from './components/Features/Features.jsx';
 
 const router = createBrowserRouter([
   {
@@ -172,6 +173,11 @@ const router = createBrowserRouter([
         // user route 
         path: 'contact',
         element: <ContactUs></ContactUs>
+      },
+      {
+        // user route 
+        path: 'features',
+        element: <Features></Features>
       },
       {
         // user route 

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import useAuth from '../Hooks/useAuth';
