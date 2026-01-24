@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { FaRegEye, FaRegEyeSlash, FaXmark } from "react-icons/fa6"; 
+import { FaRegEye, FaRegEyeSlash, FaXmark } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
@@ -14,6 +14,21 @@ const Login = () => {
     const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('')
+    const [demoEmail, setDemoEmail] = useState("");
+    const [demoPassword, setDemoPassword] = useState("");
+
+
+    const handleDemoAdmin = () => {
+        setDemoEmail("admin@gmail.com");
+        setDemoPassword("123456A");
+    };
+
+    const handleDemoUser = () => {
+        setDemoEmail("user@gmail.com");
+        setDemoPassword("123456A");
+    };
+
+
 
     const handleLogin = e => {
         e.preventDefault()
@@ -98,16 +113,51 @@ const Login = () => {
             <form onSubmit={handleLogin} className="">
                 <div>
                     <p className="font-semibold mb-2">Email</p>
-                    <input type="email" name="email" placeholder="Your Email" id="" className="border-2 border-base-300 bg-base-100 rounded-md w-full text-sm md:text-base px-4  py-1 mb-2" />
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Your Email"
+                        value={demoEmail}
+                        onChange={(e) => setDemoEmail(e.target.value)}
+                        className="border-2 border-base-300 bg-base-100 rounded-md w-full text-sm md:text-base px-4 py-1 mb-2"
+                    />
+
 
                 </div>
                 <p className="font-semibold text-sm md:text-base mb-2">Password</p>
                 <div className="relative">
-                    <input className="border-2 border-base-300 bg-base-100 rounded-md w-full text-sm md:text-base px-4  py-1 mb-2" type={showPassword ? "text" : "password"} name="password" defaultValue='123456A' placeholder="Password" id="password" required />
+                    <input
+                        className="border-2 border-base-300 bg-base-100 rounded-md w-full text-sm md:text-base px-4 py-1 mb-2"
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        value={demoPassword}
+                        onChange={(e) => setDemoPassword(e.target.value)}
+                        placeholder="Password"
+                        required
+                    />
+
                     <span className="absolute md:top-1/4 top-[5px] right-3" onClick={() => setShowPassword(!showPassword)}>
                         {showPassword ? <FaRegEyeSlash></FaRegEyeSlash> : <FaRegEye></FaRegEye>}
                     </span>
                 </div>
+                <div className="flex gap-3 my-3">
+                    <button
+                        type="button"
+                        onClick={handleDemoAdmin}
+                        className="w-full py-1 text-center  text-sm   rounded-md border border-orange-400 text-orange-500 hover:shadow-lg font-medium my-3"
+                    >
+                        Demo Admin
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={handleDemoUser}
+                        className="w-full py-1 text-center  text-sm   rounded-md border border-orange-400 text-orange-500 hover:shadow-lg font-medium my-3"
+                    >
+                        Demo User
+                    </button>
+                </div>
+
                 <div>
                     {
                         error ?
@@ -119,23 +169,23 @@ const Login = () => {
                             :
                             <input disabled={loading} className="w-full px-4 py-1 md:py-2 text-center max-sm:text-sm text-lg rounded-md border border-orange-400 text-orange-500 hover:shadow-lg font-bold my-3" type="submit" value="Login" />
                     }
-                     
+
                 </div>
             </form>
             <p className="my-3">Do not have an account <Link to='/loginRegister/register' className="text-red-500 font-bold">Please Register</Link></p>
             <div className="divider my-5"></div>
             <div className="mb-t flex justify-center items-center">
-                 
-                     
 
-                    <button onClick={handleGoogleLogin}
-                        className="border border-[#e5eaf2] rounded-md py-2 px-4 flex items-center gap-[10px] text-[1rem] text-[#424242] hover:bg-gray-50 transition-all duration-200">
-                        <img src="https://i.ibb.co/dQMmB8h/download-4-removebg-preview-1.png" alt="google logo"
-                            className="w-[23px]" />
-                        Sign in with Google
-                    </button>
 
-                
+
+                <button onClick={handleGoogleLogin}
+                    className="border border-[#e5eaf2] rounded-md py-2 px-4 flex items-center gap-[10px] text-[1rem] text-[#424242] hover:bg-gray-50 transition-all duration-200">
+                    <img src="https://i.ibb.co/dQMmB8h/download-4-removebg-preview-1.png" alt="google logo"
+                        className="w-[23px]" />
+                    Sign in with Google
+                </button>
+
+
             </div>
         </div>
     );
